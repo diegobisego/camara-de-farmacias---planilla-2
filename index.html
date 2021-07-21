@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario - Planilla 2</title>
+</head>
+<body>
+  <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-0pky" colspan="7">CAMARA DE FARMACIAS DEL CENTRO ARGENTINO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-phtq" colspan="7"></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky" colspan="7">CIERRE DE PRESENTACIÓN (2º ENTREGA)</td>
+      </tr>
+      <tr>
+        <td class="tg-phtq" colspan="7">OFICINA VILLA MARÍA: <span id="date-now"></span></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky" colspan="2" rowspan="3" style="vertical-align: bottom;">SELLO FARMACIA</td>
+        <td class="tg-0pky" colspan="3">FARMACIA:<input type="text" style="width: 300px;" class="form-control"></td>
+        <td class="tg-0pky" colspan="2" rowspan="3" style="vertical-align: bottom;">SUJETO A SUPERVISIÓN</td>
+      </tr>
+      <tr>
+        <td class="tg-phtq" colspan="3">MAT. PROF.:<input type="text" style="width: 300px;" class="form-control"></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky" colspan="3"></td>
+      </tr>
+      <tr>
+        <td class="tg-4jql" colspan="7"></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky" rowspan="4">280</td>
+        <td class="tg-0pky" rowspan="4">PAMI </td>
+        <td class="tg-0pky" colspan="3">PVP PAMI:</td>
+        <td class="tg-0pky" colspan="2">Recetas:</td>
+      </tr>
+      <tr>
+        <td class="tg-j3py" colspan="3">A Cargo PAMI:</td>
+        <td class="tg-j3py" colspan="2">Lotes:</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky" colspan="3">Bonificación:</td>
+        <td class="tg-0pky" colspan="2"></td>
+      </tr>
+      <tr>
+        <td class="tg-j3py" colspan="3">Neto:</td>
+        <td class="tg-j3py" colspan="2"></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky" rowspan="4">5148</td>
+        <td class="tg-0pky" rowspan="4">APROSS SUMA DE PLANES</td>
+        <td class="tg-73oq" colspan="5">Total Facturado:</td>
+      </tr>
+      <tr>
+        <td class="tg-j3py" colspan="5">A Cargo APROSS:</td>
+      </tr>
+      <tr>
+        <td class="tg-73oq" colspan="5">Recetas:</td>
+      </tr>
+      <tr>
+        <td class="tg-j3py" colspan="5">Lotes:</td>
+      </tr>
+      <tr>
+        <td class="tg-0pky" colspan="2">APROSS ESPECIALES</td>
+        <td class="tg-0pky">PLAN</td>
+        <td class="tg-0pky">TOTAL FACT</td>
+        <td class="tg-0pky">A CARGO</td>
+        <td class="tg-0pky">Nº REC</td>
+        <td class="tg-0pky">LOTES</td>
+      </tr>
+      <tr>
+        <td class="tg-phtq">5151</td>
+        <td class="tg-phtq">PLAN ESP. ONCOLOGÍA</td>
+        <td class="tg-phtq">$ 500</td>
+        <td class="tg-phtq"></td>
+        <td class="tg-phtq"></td>
+        <td class="tg-phtq"></td>
+        <td class="tg-phtq"></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky">5149</td>
+        <td class="tg-0pky">PLAN ESP. INSULINAS</td>
+        <td class="tg-0pky">7%</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+      </tr>
+      <tr>
+        <td class="tg-phtq">5147</td>
+        <td class="tg-phtq">PLAN ESP. TIRAS REACTIVAS </td>
+        <td class="tg-phtq">8%</td>
+        <td class="tg-phtq"></td>
+        <td class="tg-phtq"></td>
+        <td class="tg-phtq"></td>
+        <td class="tg-phtq"></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky" colspan="7"></td>
+      </tr>
+      <tr>
+        <td class="tg-phtq"></td>
+        <td class="tg-phtq" colspan="2">OBRA SOCIAL</td>
+        <td class="tg-phtq">PLAN</td>
+        <td class="tg-phtq">TOTAL FACT</td>
+        <td class="tg-phtq">A CARGO</td>
+        <td class="tg-phtq">Nº REC</td>
+      </tr>
+    </tbody>
+    <tfoot id="tfoot">
+    </tfoot>
+    </table>
+    <div class="button">
+      <button type="submit" class="btn btn-primary" id="add">AGREGAR</button>
+      <button type="submit" class="btn btn-primary">GUARDAR</button>
+      <button type="submit" class="btn btn-primary">IMPRIMIR</button>
+    </div>
+</body>
+<script src="./app.js"></script>
+<script src="./Modulos/agregar_filas.js"></script>
+<script src="./Modulos/fecha_actual.js"></script>
+</html>

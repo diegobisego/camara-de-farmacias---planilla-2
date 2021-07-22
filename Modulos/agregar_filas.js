@@ -2,7 +2,7 @@
 var id = 0;
 var table = document.getElementById("tfoot");
 let boton = document.getElementById("add");
-
+var bandera = 0;
 
 // ADD LINEA
 add = () => {
@@ -13,7 +13,7 @@ add = () => {
         let fila = document.createElement('tr');
         table.appendChild(fila);
         fila.setAttribute('id', id);
-        
+        bandera +=1;
 
         for (let i = 0; i < 7; i++) { //7 columnas
             var columna = document.createElement('td');
@@ -32,12 +32,10 @@ add = () => {
                     break;
                 case 2:
                     let sel = document.createElement("select");
-                    let opt = document.createElement("option");
                     columna.appendChild(sel);
-                    sel.appendChild(opt);
-                    opt.innerHTML = "SELECCIONE UN PLAN";
+                    sel.setAttribute("class","form-select");
+                    sel.setAttribute("id","id_planes_lista"+bandera);
                     sel.disabled = true;
-                    //carga_planes_os();
                     break;
                 case 3:
                     let input3 = document.createElement('input');
@@ -55,17 +53,20 @@ add = () => {
                     columna.appendChild(input5);
                     break;              
                 case 6:
-                    btn_borrar = document.createElement("button");
-                    btn_borrar.setAttribute("class","btn btn-danger");
+                    let btn_borrar = document.createElement("button");
+                    btn_borrar.setAttribute("class","btn btn-danger remove");
+                    btn_borrar.setAttribute('onClick', "deleteRow(this)");
+                    btn_borrar.setAttribute('value', "Delete");
                     btn_borrar.setAttribute("id","id_fila" + id);
                     columna.appendChild(btn_borrar).innerHTML = "Borrar";
                     columna.setAttribute("style","background-color: transparent; border:none;");
-                    break;                  
+                    break;                    
                 default:
                     break;
             }
 
             }
+            boton.disabled = true;
         }   
     )
 }

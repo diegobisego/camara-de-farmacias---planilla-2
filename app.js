@@ -64,174 +64,470 @@ var plan_UNIMED_SUMA_DE_PLANES = ["40%","50%","70%","100%"];
 var plan_UNIMED_INTEGRAL = ["OSPOCE INT 40%","OSPOCE INT 70%","OSPOCE INT 100%"];
 
 
+var contador = 0;
 
+//FUNCION Carga las OS
+cargar_os = (param) => {
+    let select = document.createElement("select");
+    param.appendChild(select);
+    select.setAttribute("class","form-select");
+    select.setAttribute("OnChange","carga_planes_os()");
+    select.setAttribute("id","select_os" + bandera);
+    for (let i = 0; i < os_lista.length; i++) {
+        let option = document.createElement("option"); //genero el primer option
+        select.appendChild(option); // lo append
+        option.innerHTML = os_lista[i]; //le agrego el texto de el array de la posicion
+        option.setAttribute("value",contador); //agrego un
+        option.setAttribute("id","id"+contador);
+        contador++        
+    }
+    contador = 0;
 
-//ESTO LO COPIE DE TU SCRIPT PERO NO ANDA TODAVIA
-elimina_nodos = () => {
-    let hijos = document.getElementById(value_option);
-    let padre = document.getElementById(bandera);
-    padre.removeChild(hijos);
-}
+    carga_plan_dinamico = (param1) => {
+        for (i in param1) {
+            let pos_lista_plan = document.getElementById("id_planes_lista" + bandera);
+            let option = document.createElement("option");
+            pos_lista_plan.appendChild(option);
+            option.innerText = param1[i];                        
+        }
+        boton.disabled = false;
+    }
 
-
-
-
-/*
-//FUNCION PARA AGREGAR LINEAS POR DOM
-function add() {
-    let boton = document.getElementById("agregar");
-    let tabla = document.getElementById("add"); 
     
+    carga_planes_os = () => {
+        select.disabled = true;
+        let id_select = document.getElementById("select_os"+bandera);
+        let value_id_select = id_select.value;
+        let pos_lista_plan = document.getElementById("id_planes_lista"+bandera);
 
-    boton.addEventListener('click', () => {      
-        let fila = document.createElement("tr");
-        tabla.appendChild(fila);
-        bandera +=1;
+            switch (value_id_select) {
+                case "1":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_AMUR);
+                    } else {
+                        carga_plan_dinamico(plan_AMUR);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
 
-        for (let i = 0; i < 6; i++) { //6 columnas
-            
-            var columna = document.createElement("td");
-            fila.appendChild(columna);           
-            
-            
-                switch (i) {
-                    case 0:
-                        let a = document.createElement("input");
-                        columna.appendChild(a);
-                        a.setAttribute("type","text");                        
-                        break;
-                    case 1:
-                        let b = document.createElement("select");
-                        let option = document.createElement("option");
-                        b.setAttribute("class","lista");
-                        b.setAttribute("id","pruebo"+bandera);
-                        b.setAttribute("OnChange","seleccionOS()");
-                        b.appendChild(option);
-                        option.innerText = "Seleccione OS";
-                        columna.appendChild(b);
-                        columna.setAttribute("colspan","2");
-                        //aca va el for para ir metiendo las OS
-                        for (let i = 0; i < array_os.length; i++) {
-                                let k = document.createElement("option");
-                                b.appendChild(k);
-                                k.innerHTML = array_os[i];
-                                k.setAttribute("Value",i);
-                            };
-                        break;
-                    case 2:
-                        let c = document.createElement("select");
-                        c.setAttribute("class","lista lista2");
-                        c.setAttribute("id","planes_lista"+bandera);
-                        columna.appendChild(c);
-                        c.disabled = true;
-                        break;
-                    case 3:
-                        let d = document.createElement("input");
-                        d.setAttribute("id","grande2");
-                        columna.appendChild(d);
-                        break;
-                    case 4:
-                        let e = document.createElement("input");
-                        e.setAttribute("id","grande2");
-                        columna.appendChild(e);
-                        break;
-                    case 5:
-                        let f = document.createElement("input");
-                        f.setAttribute("id","grande3");
-                        columna.appendChild(f);
-                        columna.setAttribute("colspan","3");
-                        break;                            
+                    case "2":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_ANDAR);
+                    } else {
+                        carga_plan_dinamico(plan_ANDAR);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    
+                    case "3":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_ASOC_ECLESIASTICA_SAN_PEDRO);
+                    } else {
+                        carga_plan_dinamico(plan_ASOC_ECLESIASTICA_SAN_PEDRO);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "4":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_ASPURC);
+                    } else {
+                        carga_plan_dinamico(plan_ASPURC);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "5":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_CAJA_NOTARIAL);
+                    } else {
+                        carga_plan_dinamico(plan_CAJA_NOTARIAL);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "6":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_C_P_C_E);
+                    } else {
+                        carga_plan_dinamico(plan_C_P_C_E);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "7":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_COOPERACION_SEGUROS);
+                    } else {
+                        carga_plan_dinamico(plan_COOPERACION_SEGUROS);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "8":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_GALENO_CONSULTING_GROUP);
+                    } else {
+                        carga_plan_dinamico(plan_GALENO_CONSULTING_GROUP);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "9":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_HOSPITAL_PRIVADO);
+                    } else {
+                        carga_plan_dinamico(plan_HOSPITAL_PRIVADO);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "10":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_IOSFA);
+                    } else {
+                        carga_plan_dinamico(plan_IOSFA);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "11":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_IOSFA_ONCOLÓGICOS);
+                    } else {
+                        carga_plan_dinamico(plan_IOSFA_ONCOLÓGICOS);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "12":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OSFA_REFACTURACIÓN);
+                    } else {
+                        carga_plan_dinamico(plan_OSFA_REFACTURACIÓN);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "13":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_INTERACCION_ART);
+                    } else {
+                        carga_plan_dinamico(plan_INTERACCION_ART);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "14":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_LUZ_Y_FUERZA);
+                    } else {
+                        carga_plan_dinamico(plan_LUZ_Y_FUERZA);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "15":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_MEDICAMENTO_PRIMER_NIVEL);
+                    } else {
+                        carga_plan_dinamico(plan_MEDICAMENTO_PRIMER_NIVEL);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "16":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_MEDIDORES_DE_GLUCOSA);
+                    } else {
+                        carga_plan_dinamico(plan_MEDIDORES_DE_GLUCOSA);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "17":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_MUTUAL_FEDERADA_NO_VALIDADAS);
+                    } else {
+                        carga_plan_dinamico(plan_MUTUAL_FEDERADA_NO_VALIDADAS);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "18":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_MUTUAL_FEDERADA);
+                    } else {
+                        carga_plan_dinamico(plan_MUTUAL_FEDERADA);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "19":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_NOBIS);
+                    } else {
+                        carga_plan_dinamico(plan_NOBIS);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "20":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OS_EMP_DE_FARMACIAS);
+                    } else {
+                        carga_plan_dinamico(plan_OS_EMP_DE_FARMACIAS);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "21":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OS_PERSONAL_IND_GRAFICA);
+                    } else {
+                        carga_plan_dinamico(plan_OS_PERSONAL_IND_GRAFICA);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "22":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OMINT);
+                    } else {
+                        carga_plan_dinamico(plan_OMINT);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "23":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OSDOP);
+                    } else {
+                        carga_plan_dinamico(plan_OSDOP);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "24":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OSPSA_SANIDAD);
+                    } else {
+                        carga_plan_dinamico(plan_OSPSA_SANIDAD);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "25":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OSPIL_AMPIL);
+                    } else {
+                        carga_plan_dinamico(plan_OSPIL_AMPIL);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "26":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OSPRERA);
+                    } else {
+                        carga_plan_dinamico(plan_OSPRERA);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "27":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OSIM);
+                    } else {
+                        carga_plan_dinamico(plan_OSIM);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "28":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_OSSACRA);
+                    } else {
+                        carga_plan_dinamico(plan_OSSACRA);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "29":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_PAMI_ONCOLÓGICO);
+                    } else {
+                        carga_plan_dinamico(plan_PAMI_ONCOLÓGICO);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "30":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_PREVENCIÓN_ART);
+                    } else {
+                        carga_plan_dinamico(plan_PREVENCIÓN_ART);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "31":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_RECETARIO_SOLIDARIO);
+                    } else {
+                        carga_plan_dinamico(plan_RECETARIO_SOLIDARIO);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "32":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_SAT_TELEVISIÓN);
+                    } else {
+                        carga_plan_dinamico(plan_SAT_TELEVISIÓN);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "33":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_SIND_EMP_MUNICIP_DEL_SE);
+                    } else {
+                        carga_plan_dinamico(plan_SIND_EMP_MUNICIP_DEL_SE);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "34":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_SUOEM);
+                    } else {
+                        carga_plan_dinamico(plan_SUOEM);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "35":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_UOM);
+                    } else {
+                        carga_plan_dinamico(plan_UOM);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "36":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_UNIMED_SUMA_DE_PLANES);
+                    } else {
+                        carga_plan_dinamico(plan_UNIMED_SUMA_DE_PLANES);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
+                    case "37":                       
+                    if (pos_lista_plan.hasChildNodes()) {
+                        while (pos_lista_plan.firstChild) {
+                            pos_lista_plan.removeChild(pos_lista_plan.firstChild);    
+                        }
+                        carga_plan_dinamico(plan_UNIMED_INTEGRAL);
+                    } else {
+                        carga_plan_dinamico(plan_UNIMED_INTEGRAL);
+                        pos_lista_plan.disabled = false;
+                    }                    
+                    break;
                     default:
                         break;
-                }
-            
-        }
-    })
+            }
+                
+    }
 }
 
-var bandera = 0
-var bandera_plan = 0
 
-
-add();
-
-//ARRAY CON OS Y PLANES
-var array_os = ["AMUR","ASPURC","CAJA NOTARIAL","HOSPITAL PRIVADO","LUZ Y FUERZA"];
-var lista_planes_AMUR = ["AMB","PLAN2","PLAN3","PLAN4","PLAN-Z"];
-var lista_planes_ASPURC = ["AMB 60%","AMB1","AMB2","AMB3","AMB4"];
-var lista_planes_NOTARIAL = ["AMB_NOTARIAL","PMI"];
-var lista_planes_PRIVADO = ["VALIDADAS","NO VALIDADAS"];
-var lista_planes_FUERZA = ["TODOS LOS PLANES","REFACTURADAS"];
-
-//FUNCION PARA CARGAR PLANES
-
-function seleccionOS() {
-    let pruebo = document.getElementById("pruebo"+bandera);
-    let valor = pruebo.value;
-    let planes_lista = document.getElementById("planes_lista"+bandera);
-
-    switch (valor) {
-        case "0":
-            debugger;
-            if (pruebo.hasChildNodes()) {
-                elimina_nodos();                
-            } else{
-                for (value in lista_planes_AMUR) {
-                    var option = document.createElement("option");
-                    planes_lista.appendChild(option);
-                    option.text = lista_planes_AMUR[value];
-            }   }
-            planes_lista.disabled = false;
-            break;
-        case "1":
-            
-            for (value in lista_planes_ASPURC) {
-                var option = document.createElement("option");
-                planes_lista.appendChild(option);
-                option.text = lista_planes_ASPURC[value];
-            }
-            planes_lista.disabled = false;
-            break;
-        case "2":
-            
-            for (value in lista_planes_NOTARIAL) {
-                var option = document.createElement("option");
-                planes_lista.appendChild(option);
-                option.text = lista_planes_NOTARIAL[value];
-            }
-            planes_lista.disabled = false;
-            break;
-        case "3":
-            
-            for (value in lista_planes_PRIVADO) {
-                var option = document.createElement("option");
-                planes_lista.appendChild(option);
-                option.text = lista_planes_PRIVADO[value];
-            }
-            planes_lista.disabled = false;
-            break;
-        case "4":
-            
-            for (value in lista_planes_FUERZA) {
-                var option = document.createElement("option");
-                planes_lista.appendChild(option);
-                option.text = lista_planes_FUERZA[value];
-            }
-            planes_lista.disabled = false;
-            break;    
-        default:
-            break;
-    };
-};
-
-
-//ELIMINA NODOS HIJOS
-
-function elimina_nodos() {
-    let hijos = document.getElementById(planes_lista);
-    let padre = document.getElementById(bandera);
+elimina_nodos = (param1,param2) => {
+    let hijos = document.getElementById(param1);
+    let padre = document.getElementById(param2);
     padre.removeChild(hijos);
 
 }
 
-*/
+
+deleteRow = (btn) => {
+    var row = btn.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+    boton.disabled = false;
+}

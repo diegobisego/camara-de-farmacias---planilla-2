@@ -23,7 +23,7 @@ add = () => {
             switch (i) {
                 case 0:    
                     let inpu0 = document.createElement('input');
-                    inpu0.setAttribute('class','form-control');
+                    inpu0.setAttribute('class','sizeF1');
                     columna.appendChild(inpu0);                    
                     break;
                 case 1:
@@ -33,23 +33,23 @@ add = () => {
                 case 2:
                     let sel = document.createElement("select");
                     columna.appendChild(sel);
-                    sel.setAttribute("class","form-select");
+                    sel.setAttribute("class","sizeF2");
                     sel.setAttribute("id","id_planes_lista"+bandera);
                     sel.disabled = true;
                     break;
                 case 3:
                     let input3 = document.createElement('input');
-                    input3.setAttribute('class','form-control');
+                    input3.setAttribute('class','sizeF1');
                     columna.appendChild(input3);
                     break;
                 case 4:
                     let input4 = document.createElement('input');
-                    input4.setAttribute('class','form-control');
+                    input4.setAttribute('class','sizeF1');
                     columna.appendChild(input4);
                     break;
                 case 5:
                     let input5 = document.createElement('input');
-                    input5.setAttribute('class','form-control');
+                    input5.setAttribute('class','sizeF1');
                     columna.appendChild(input5);
                     break;              
                 case 6:

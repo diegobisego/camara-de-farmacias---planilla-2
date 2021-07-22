@@ -93,3 +93,21 @@ td > input {
     margin-left: 5%;
     margin-top: 5%;
 }
+
+.sizeF1 {
+    width: 100px;
+    height: 36px;
+    border-radius: 8%;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    font-size: 11px;
+}
+
+.sizeF2 {
+    width: 230px;
+    height: 36px;
+    border-radius: 8%;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    font-size: 11px;
+}

@@ -70,7 +70,7 @@ var contador = 0;
 cargar_os = (param) => {
     let select = document.createElement("select");
     param.appendChild(select);
-    select.setAttribute("class","form-select");
+    select.setAttribute("class","sizeF2");
     select.setAttribute("OnChange","carga_planes_os()");
     select.setAttribute("id","select_os" + bandera);
     for (let i = 0; i < os_lista.length; i++) {

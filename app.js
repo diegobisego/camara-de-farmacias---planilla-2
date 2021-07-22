@@ -531,3 +531,4 @@ deleteRow = (btn) => {
     row.parentNode.removeChild(row);
     boton.disabled = false;
 }
+

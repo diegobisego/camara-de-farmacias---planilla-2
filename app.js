@@ -518,17 +518,19 @@ cargar_os = (param) => {
 }
 
 
-elimina_nodos = (param1,param2) => {
-    let hijos = document.getElementById(param1);
-    let padre = document.getElementById(param2);
-    padre.removeChild(hijos);
-
-}
-
-
 deleteRow = (btn) => {
     var row = btn.parentNode.parentNode;
     row.parentNode.removeChild(row);
     boton.disabled = false;
 }
 
+ocultar = () =>{
+    const buttons = document.getElementsByTagName("button");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].style.display = "none";
+    }
+    window.print();
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].style.display = "inline-block";
+    }
+}

@@ -370,57 +370,53 @@ carga_cod_planes = () => {
             codigo.disabled = true;
             break; 
         case "26":
-            codigo.value = "6800"
+            codigo.value = "505"
             codigo.disabled = true;
             break; 
         case "27":
-            codigo.value = "505"
+            codigo.value = "6004"
             codigo.disabled = true;
             break;     
         case "28":
-            codigo.value = "6004"
-            codigo.disabled = true;
-            break; 
-        case "29":
             codigo.value = "185"
             codigo.disabled = true;
             break; 
-        case "30":
+        case "29":
             codigo.value = "2281"
             codigo.disabled = true;
             break; 
-        case "31":
+        case "30":
             codigo.value = "215"
+            codigo.disabled = true;
+            break; 
+        case "31":
+            codigo.value = "1000"
             codigo.disabled = true;
             break;
         case "32":
-            codigo.value = "1000"
-            codigo.disabled = true;
-            break; 
-        case "33":
             codigo.value = "83"
             codigo.disabled = true;
             break; 
-        case "34":
+        case "33":
             codigo.value = "94"
             codigo.disabled = true;
             break; 
-        case "35":
+        case "34":
             codigo.value = "1500"
             codigo.disabled = true;
             break; 
-        case "36":
+        case "35":
             codigo.value = "15"
             codigo.disabled = true;
             break; 
-        case "37":
+        case "36":
             codigo.value = "231"
             codigo.disabled = true;
             break; 
-        case "38":
+        case "37":
             codigo.value = "2230"
             codigo.disabled = true;
-        break;
+            break; 
         default:
             break;
     }
